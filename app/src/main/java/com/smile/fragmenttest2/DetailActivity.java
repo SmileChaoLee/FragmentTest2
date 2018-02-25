@@ -24,7 +24,7 @@ public class DetailActivity extends AppCompatActivity {
         if (extras != null) {
             int color = extras.getInt("colorContent");
             String item = extras.getString("itemContent");
-            FragmentDetail fragmentDetail =  (FragmentDetail) getFragmentManager().findFragmentById(R.id.detail_Fragment);
+            FragmentDetail fragmentDetail =  (FragmentDetail) getFragmentManager().findFragmentById(R.id.fragment_detail);
             if (fragmentDetail != null) {
                 fragmentDetail.setTextColor(color);
                 fragmentDetail.setText(item);

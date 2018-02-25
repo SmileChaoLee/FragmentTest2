@@ -13,7 +13,7 @@ import android.widget.Button;
 /**
  * Created by lee on 2/20/2016.
  */
-public class FragmentList extends Fragment {
+public class FragmentListButtons extends Fragment {
 
     private Button buttonOne=null, buttonTwo=null, buttonThree=null;
     private FragmentDetail fragmentDetail=null;
@@ -21,7 +21,7 @@ public class FragmentList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.list_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_list_buttons, container, false);
         buttonOne = (Button) view.findViewById(R.id.buttonOne);
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +55,7 @@ public class FragmentList extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
-            fragmentDetail =  (FragmentDetail)getFragmentManager().findFragmentById(R.id.detail_Fragment);
+            fragmentDetail =  (FragmentDetail)getFragmentManager().findFragmentById(R.id.fragment_detail);
     }
 
     private void showDetail(int color ,String item) {
@@ -63,14 +63,14 @@ public class FragmentList extends Fragment {
             if (fragmentDetail.isInLayout()) {
                 fragmentDetail.setTextColor(color);
                 fragmentDetail.setText(item);
-                return;
             }
+        } else {
+            Intent intent = new Intent(getActivity().getApplicationContext(),DetailActivity.class);
+            Bundle extras = new Bundle();
+            extras.putInt("colorContent",color);
+            extras.putString("itemContent",item);
+            intent.putExtras(extras);
+            startActivity(intent);
         }
-        Intent intent = new Intent(getActivity().getApplicationContext(),DetailActivity.class);
-        Bundle extras = new Bundle();
-        extras.putInt("colorContent",color);
-        extras.putString("itemContent",item);
-        intent.putExtras(extras);
-        startActivity(intent);
     }
 }
