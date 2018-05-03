@@ -98,18 +98,16 @@ public class FragmentListAdaptor extends Fragment {
                 switch (position) {
                     case 0:
                         color = Color.RED;
-                        showDetail(color,item);
                         break;
                     case 1:
                         color = Color.BLACK;
-                        showDetail(color,item);
                         break;
                     case 2:
                         color = Color.BLUE;
-                        showDetail(color,item);
                         break;
                     default:
                 }
+                showDetail(color,item);
             }
         });
 

@@ -11,61 +11,22 @@
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:weightSum="2" >
+        android:layout_weight="1">
 
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Buttons"
-                android:textColor="#ff000000"
-                android:background="#ffff0000"
-                android:textStyle="bold" >
-            </TextView>
-
-            <fragment
-                android:id="@+id/fragment_list_buttons"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                class="com.smile.fragmenttest2.FragmentListButtons" >
-            </fragment>
-
-        </LinearLayout>
-
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Adaptor"
-                android:textColor="#ff000000"
-                android:background="#ffff0000">
-            </TextView>
-
-            <fragment
-                android:id="@+id/fragment_list_adaptor"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                class="com.smile.fragmenttest2.FragmentListAdaptor" >
-
-            </fragment>
-
-        </LinearLayout>
+        <include layout="@layout/main_base_layout" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+
+        <include layout="@layout/detail_base_fragment"/>
+
+    </LinearLayout>
+
+    <!--
     <fragment
         android:id="@+id/fragment_detail"
         android:layout_width="0dp"
@@ -73,5 +34,6 @@
         android:layout_weight="2"
         class="com.smile.fragmenttest2.FragmentDetail" >
     </fragment>
+    -->
 
 </LinearLayout>

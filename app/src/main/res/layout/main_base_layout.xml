@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="2">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buttons"
+            android:textColor="#ff000000"
+            android:background="#ffff0000">
+        </TextView>
+
+        <fragment
+            android:id="@+id/fragment_list_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.smile.fragmenttest2.FragmentListButtons" >
+        </fragment>
+
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adaptor"
+            android:textColor="#ff000000"
+            android:background="#ffff0000">
+        </TextView>
+
+        <fragment
+            android:id="@+id/fragment_list_adaptor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.smile.fragmenttest2.FragmentListAdaptor" >
+        </fragment>
+
+    </LinearLayout>
+
+</LinearLayout>
