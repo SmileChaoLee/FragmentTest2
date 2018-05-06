@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/main_base_layout" />
+    <include layout="@layout/layout_mainactivity_base" />
 
 </LinearLayout>

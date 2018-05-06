@@ -11,14 +11,14 @@ import android.widget.TextView;
 /**
  * Created by lee on 2/20/2016.
  */
-public class FragmentDetail extends Fragment {
+public class DetailFragment extends Fragment {
 
     TextView detailText = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_detail,container,false);
+        View view = inflater.inflate(R.layout.layout_detail,container,false);
         detailText = (TextView) view.findViewById(R.id.textDetail);
         return view;
     }

@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 // import android.support.v4.app.Fragment;
 import android.app.Fragment;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +14,14 @@ import android.widget.Button;
 /**
  * Created by lee on 2/20/2016.
  */
-public class FragmentListButtons extends Fragment {
+public class ListButtonsFragment extends Fragment {
 
     private static final String TAG = "FragmentListButtons";
 
-    private Button buttonOne=null, buttonTwo=null, buttonThree=null;
-    private FragmentDetail fragmentDetail=null;
+    private Button buttonOne = null, buttonTwo = null, buttonThree = null;
+    private DetailFragment detailFragment = null;
 
-    public FragmentListButtons()
+    public ListButtonsFragment()
     {
         // Required empty public constructor
     }
@@ -30,7 +29,7 @@ public class FragmentListButtons extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_list_buttons, container, false);
+        View view = inflater.inflate(R.layout.layout_list_buttons, container, false);
         buttonOne = (Button) view.findViewById(R.id.buttonOne);
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,19 +66,19 @@ public class FragmentListButtons extends Fragment {
 
             // if portrait then no R.id.fragment.derail -> fragmentDetail will be null
             // else there is R.id.fragment.detail -> fragmentDetail will not be null
-            fragmentDetail = (FragmentDetail)getFragmentManager().findFragmentById(R.id.fragment_detail);
+            detailFragment = (DetailFragment)getFragmentManager().findFragmentById(R.id.fragment_detail);
 
             Log.d("FragmentListButtons", "onActivityCreated");
     }
 
     private void showDetail(int color ,String item) {
 
-        if (fragmentDetail != null) {
+        if (detailFragment != null) {
             // for Landscape
             Log.d("showDetail", "not null");
-            if (fragmentDetail.isInLayout()) {
-                fragmentDetail.setTextColor(color);
-                fragmentDetail.setText(item);
+            if (detailFragment.isInLayout()) {
+                detailFragment.setTextColor(color);
+                detailFragment.setText(item);
             }
         } else {
             // for portrait

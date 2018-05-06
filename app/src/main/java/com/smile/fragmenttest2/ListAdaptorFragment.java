@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 // import android.support.v4.app.Fragment;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,18 +15,19 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FragmentListAdaptor.OnFragmentInteractionListener} interface
+ * {@link ListAdaptorFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FragmentListAdaptor#newInstance} factory method to
+ * Use the {@link ListAdaptorFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentListAdaptor extends Fragment {
+public class ListAdaptorFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
+    private static final String TAG = "FragmentListAdaptor";
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -36,9 +38,9 @@ public class FragmentListAdaptor extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    private FragmentDetail fragmentDetail=null;
+    private DetailFragment detailFragment = null;
 
-    public FragmentListAdaptor() {
+    public ListAdaptorFragment() {
         // Required empty public constructor
     }
 
@@ -51,8 +53,8 @@ public class FragmentListAdaptor extends Fragment {
      * @return A new instance of fragment FragmentListAdaptor.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentListAdaptor newInstance(String param1, String param2) {
-        FragmentListAdaptor fragment = new FragmentListAdaptor();
+    public static ListAdaptorFragment newInstance(String param1, String param2) {
+        ListAdaptorFragment fragment = new ListAdaptorFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,6 +69,8 @@ public class FragmentListAdaptor extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        Log.i(TAG, "Created.");
     }
 
     @Override
@@ -74,14 +78,14 @@ public class FragmentListAdaptor extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View view = inflater.inflate(R.layout.fragment_list_adaptor, container, false);
+        View view = inflater.inflate(R.layout.layout_list_adaptor, container, false);
         LinearLayout parentLayout = view.findViewById(R.id.adaptorFragmentLayout);
 
         String[] dataSet = {"Chao Lee", "David Cheng", "John Oliver"};
 
         ArrayAdapter<String> nameListAdapter = new ArrayAdapter<String>(
                 getActivity(),
-                R.layout.item_for_adaptor,
+                R.layout.layout_item_for_adaptor,
                 R.id.textViewForItem,
                 dataSet);
 
@@ -123,7 +127,7 @@ public class FragmentListAdaptor extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        fragmentDetail =  (FragmentDetail)getFragmentManager().findFragmentById(R.id.fragment_detail);
+        detailFragment =  (DetailFragment)getFragmentManager().findFragmentById(R.id.fragment_detail);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -172,10 +176,10 @@ public class FragmentListAdaptor extends Fragment {
     }
 
     private void showDetail(int color ,String item) {
-        if (fragmentDetail != null) {
-            if (fragmentDetail.isInLayout()) {
-                fragmentDetail.setTextColor(color);
-                fragmentDetail.setText(item);
+        if (detailFragment != null) {
+            if (detailFragment.isInLayout()) {
+                detailFragment.setTextColor(color);
+                detailFragment.setText(item);
             }
         } else {
             Intent intent = new Intent(getActivity().getApplicationContext(),DetailActivity.class);

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
-        <include layout="@layout/main_base_layout" />
+        <include layout="@layout/layout_mainactivity_base" />
 
     </LinearLayout>
 
@@ -22,7 +22,7 @@
         android:layout_height="match_parent"
         android:layout_weight="2">
 
-        <include layout="@layout/detail_base_fragment"/>
+        <include layout="@layout/fragment_detail_base"/>
 
     </LinearLayout>
 
