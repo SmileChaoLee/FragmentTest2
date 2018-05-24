@@ -182,7 +182,7 @@ public class ListAdaptorFragment extends Fragment {
                 detailFragment.setText(item);
             }
         } else {
-            Intent intent = new Intent(getActivity().getApplicationContext(),DetailActivity.class);
+            Intent intent = new Intent(getActivity(),DetailActivity.class);
             Bundle extras = new Bundle();
             extras.putInt("colorContent",color);
             extras.putString("itemContent",item);
