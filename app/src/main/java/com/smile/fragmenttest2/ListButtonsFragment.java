@@ -27,9 +27,17 @@ public class ListButtonsFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Log.i(TAG, "ListButtonsFragment's onCreated() called and fragment is created.");
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.layout_list_buttons, container, false);
+
+        View view = inflater.inflate(R.layout.layout_for_ListButtonsFragment, container, false);
         buttonOne = (Button) view.findViewById(R.id.buttonOne);
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +76,7 @@ public class ListButtonsFragment extends Fragment {
             // else there is R.id.fragment.detail -> fragmentDetail will not be null
             detailFragment = (DetailFragment)getFragmentManager().findFragmentById(R.id.fragment_detail);
 
-            Log.d("FragmentListButtons", "onActivityCreated");
+            Log.d("ListButtonsFragment", "onActivityCreated");
     }
 
     private void showDetail(int color ,String item) {

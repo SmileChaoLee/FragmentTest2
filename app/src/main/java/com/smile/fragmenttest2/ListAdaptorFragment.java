@@ -70,7 +70,7 @@ public class ListAdaptorFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        Log.i(TAG, "Created.");
+        Log.i(TAG, "ListAdaptorFragment's onCreated() called and fragment is created.");
     }
 
     @Override
@@ -78,7 +78,7 @@ public class ListAdaptorFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View view = inflater.inflate(R.layout.layout_list_adaptor, container, false);
+        View view = inflater.inflate(R.layout.layout_for_ListAdaptorFragment, container, false);
         LinearLayout parentLayout = view.findViewById(R.id.adaptorFragmentLayout);
 
         String[] dataSet = {"Chao Lee", "David Cheng", "John Oliver"};
@@ -128,6 +128,7 @@ public class ListAdaptorFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         detailFragment =  (DetailFragment)getFragmentManager().findFragmentById(R.id.fragment_detail);
+        Log.d("ListAdaptorFragment", "onActivityCreated");
     }
 
     // TODO: Rename method, update argument and hook method into UI event
