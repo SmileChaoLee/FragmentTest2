@@ -19,12 +19,12 @@ import android.widget.ListView;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ListAdaptorFragment.OnFragmentInteractionListener} interface
+ * {@link ListAdapterFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ListAdaptorFragment#newInstance} factory method to
+ * Use the {@link ListAdapterFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListAdaptorFragment extends Fragment {
+public class ListAdapterFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     private static final String TAG = "FragmentListAdaptor";
 
@@ -40,7 +40,7 @@ public class ListAdaptorFragment extends Fragment {
 
     private DetailFragment detailFragment = null;
 
-    public ListAdaptorFragment() {
+    public ListAdapterFragment() {
         // Required empty public constructor
     }
 
@@ -53,8 +53,8 @@ public class ListAdaptorFragment extends Fragment {
      * @return A new instance of fragment FragmentListAdaptor.
      */
     // TODO: Rename and change types and number of parameters
-    public static ListAdaptorFragment newInstance(String param1, String param2) {
-        ListAdaptorFragment fragment = new ListAdaptorFragment();
+    public static ListAdapterFragment newInstance(String param1, String param2) {
+        ListAdapterFragment fragment = new ListAdapterFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -78,14 +78,14 @@ public class ListAdaptorFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View view = inflater.inflate(R.layout.layout_for_ListAdaptorFragment, container, false);
+        View view = inflater.inflate(R.layout.layout_for_list_adapter_fragment, container, false);
         LinearLayout parentLayout = view.findViewById(R.id.adaptorFragmentLayout);
 
         String[] dataSet = {"Chao Lee", "David Cheng", "John Oliver"};
 
         ArrayAdapter<String> nameListAdapter = new ArrayAdapter<String>(
                 getActivity(),
-                R.layout.layout_item_for_adaptor,
+                R.layout.layout_item_for_adapter,
                 R.id.textViewForItem,
                 dataSet);
 

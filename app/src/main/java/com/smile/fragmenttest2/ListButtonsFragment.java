@@ -37,7 +37,7 @@ public class ListButtonsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View view = inflater.inflate(R.layout.layout_for_ListButtonsFragment, container, false);
+        View view = inflater.inflate(R.layout.layout_for_list_buttons_fragment, container, false);
         buttonOne = (Button) view.findViewById(R.id.buttonOne);
         buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override

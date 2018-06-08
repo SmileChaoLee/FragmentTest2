@@ -18,7 +18,7 @@ public class DetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
-        View view = inflater.inflate(R.layout.layout_for_DetailFragment,container,false);
+        View view = inflater.inflate(R.layout.layout_for_detail_fragment,container,false);
         detailText = (TextView) view.findViewById(R.id.textDetail);
 
         System.out.println("DetailFragment is created.");
